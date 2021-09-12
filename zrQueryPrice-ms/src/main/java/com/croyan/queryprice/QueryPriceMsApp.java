@@ -3,6 +3,9 @@ package com.croyan.queryprice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * Clase principal que inicializa el microservicio con Spring Boot.
@@ -11,6 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
  *
  */
 @SpringBootApplication
+@Configuration
+@ImportResource("classpath:beans.xml")
+@PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = {
         "com.croyan.queryprice"
 })
