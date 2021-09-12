@@ -12,6 +12,18 @@ public class ServiceResponse<T> {
 
     }
 
+    public boolean isOk() {
+        return ok;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
     public static class Builder<T> {
         private ServiceResponse instance;
 
