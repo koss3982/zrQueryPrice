@@ -41,8 +41,8 @@ public class QueryController {
     @GetMapping(produces = "application/json")
     public ResponseEntity<ProductPriceBean> getPrice(
             @RequestParam(value="date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)  LocalDateTime date,
-            @RequestParam(value="brandId") int brandId,
-            @RequestParam(value="productId") int productId
+            @RequestParam(value="brandId") long brandId,
+            @RequestParam(value="productId") long productId
         )
             throws NoPriceFoundException {
         ResponseEntity resp;
@@ -52,7 +52,7 @@ public class QueryController {
         LOG.debug("Llamada getPrice con los parámetros: " +
                 "{date: " + date + ", brandId: " + brandId + ", productId: " + productId + "}");
         // Aquí la parte lógica de la llamada. Esta está delegada al BP correspondiente
-        productPrice = queryPriceBP.search(LocalDateTime.now(), brandId, productId);
+        productPrice = queryPriceBP.search(brandId, productId, date);
 
         // Devuelve la respuesta.
         // Se utiliza siempre una clase de respuesta que envuelve los datos.

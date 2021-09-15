@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 /**
  * Clase de negocio para realizar la consulta de tarifa y precios.
@@ -27,21 +28,35 @@ public class QueryPriceStandardBP implements QueryPriceBP {
         this.priceRepository = priceRepository;
     }
 
-    public ProductPriceBean search(LocalDateTime date, int brandId, int productId) throws NoPriceFoundException {
+    public ProductPriceBean search(Long brandId, Long productId, LocalDateTime date) throws NoPriceFoundException {
         ProductPriceBean retProdPriceBean;
         Price selectedPrice;
 
-        selectedPrice = priceRepository.getById(1L);
+        selectedPrice = null;
 
-        if (selectedPrice == null) {
+        List<Price> listPrices = priceRepository.findProductPrice(brandId, productId, date);
+
+        if (listPrices!=null && listPrices.size() > 0) {
+            selectedPrice = listPrices.get(0);
+        } else {
             LOG.warn("No se ha encontrado ningún precio para => date: " + date + ", brandId: " + brandId + ", productId: " + productId);
             throw new NoPriceFoundException(brandId, productId);
         }
 
+        return toProducPriceBean(selectedPrice);
+    }
 
-        return new ProductPriceBean(1,1,1,
-                LocalDateTime.now().minus(3, ChronoUnit.DAYS),
-                LocalDateTime.now().plus(6, ChronoUnit.DAYS),
-                29.99);
+    private ProductPriceBean toProducPriceBean(Price selectedPrice) {
+        ProductPriceBean ppb;
+
+        ppb = new ProductPriceBean(
+                selectedPrice.getBrand().getId(),
+                selectedPrice.getProduct().getId(),
+                selectedPrice.getId(),
+                selectedPrice.getStartDate(),
+                selectedPrice.getEndDate(),
+                selectedPrice.getPrice());
+
+        return ppb;
     }
 }

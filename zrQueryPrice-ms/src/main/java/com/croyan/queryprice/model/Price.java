@@ -26,6 +26,9 @@ public class Price {
     private LocalDateTime endDate;
 
     @Column(nullable = false)
+    private int priority;
+
+    @Column(nullable = false)
     private double price;
 
     @ManyToOne
@@ -70,6 +73,14 @@ public class Price {
 
     public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public double getPrice() {

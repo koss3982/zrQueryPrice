@@ -5,21 +5,21 @@ package com.croyan.queryprice.exception;
  */
 public class NoPriceFoundException extends Exception {
 
-    private int brandId;
-    private int productId;
+    private Long brandId;
+    private Long productId;
 
-    public NoPriceFoundException(int brandId, int productId) {
+    public NoPriceFoundException(Long brandId, Long productId) {
         super("No se ha encontrado ningún precio para brandId: " + brandId +" y productId: " + productId);
 
         this.brandId = brandId;
         this.productId = productId;
     }
 
-    public int getBrandId() {
+    public Long getBrandId() {
         return brandId;
     }
 
-    public int getProductId() {
+    public Long getProductId() {
         return productId;
     }
 }

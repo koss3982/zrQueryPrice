@@ -13,5 +13,5 @@ import java.time.LocalDateTime;
  * los cuales no estén reflejados en la base de datos, sino en reglas de negocio.
  */
 public interface QueryPriceBP {
-    public ProductPriceBean search(LocalDateTime date, int brandId, int productId) throws NoPriceFoundException;
+    public ProductPriceBean search(Long brandId, Long productId, LocalDateTime date) throws NoPriceFoundException;
 }
