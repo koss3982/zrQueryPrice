@@ -1,6 +1,7 @@
 package com.croyan.queryprice.backend;
 
 import com.croyan.queryprice.bean.ProductPriceBean;
+import com.croyan.queryprice.exception.NoPriceFoundException;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -14,10 +15,10 @@ import java.time.temporal.ChronoUnit;
  */
 public class DummyQueryPriceStandardBP implements QueryPriceBP {
 
-        public ProductPriceBean search(LocalDateTime date, int brandId, int productId) {
+        public ProductPriceBean search(Long brandId, Long productId, LocalDateTime date) throws NoPriceFoundException {
 
             // Datos de ejemplo
-            return new ProductPriceBean(1,1,1,
+            return new ProductPriceBean(1L,1L,1L,
                     LocalDateTime.now().minus(3, ChronoUnit.DAYS),
                     LocalDateTime.now().plus(6, ChronoUnit.DAYS),
                     29.99);
