@@ -27,7 +27,8 @@ public class QueryController {
     private static final Logger LOG = LoggerFactory.getLogger(QueryController.class);
 
     @Autowired
-    @Qualifier("DummyQueryPriceStandardBP")
+    //@Qualifier("DummyQueryPriceStandardBP")
+    @Qualifier("QueryPriceStandardBP")
     private QueryPriceBP queryPriceBP;
 
     /**

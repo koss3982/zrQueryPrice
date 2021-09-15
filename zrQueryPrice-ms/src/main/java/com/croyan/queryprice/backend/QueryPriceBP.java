@@ -1,6 +1,8 @@
 package com.croyan.queryprice.backend;
 
 import com.croyan.queryprice.bean.ProductPriceBean;
+import com.croyan.queryprice.exception.NoPriceFoundException;
+
 import java.time.LocalDateTime;
 
 /**
@@ -11,5 +13,5 @@ import java.time.LocalDateTime;
  * los cuales no estén reflejados en la base de datos, sino en reglas de negocio.
  */
 public interface QueryPriceBP {
-    public ProductPriceBean search(LocalDateTime date, int brandId, int productId);
+    public ProductPriceBean search(LocalDateTime date, int brandId, int productId) throws NoPriceFoundException;
 }
