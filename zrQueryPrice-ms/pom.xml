@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.croyan</groupId>
     <artifactId>zrQueryPricems</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>zrQueryPrice-ms</name>
     <description>Microservicio de consulta de tarifas y precios.</description>
 
