@@ -7,6 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Clase repositorio JPA para realizar las consultas por los precios.
+ * Se podría haber utilizado un EntityManager y un datasource, pero
+ * es más práctico estas interficies de SPRING que ya tienen implementada
+ * la lógica CRUD y se pueden añadir "NAMED QUERIES" como métodos.
+ */
 public interface PriceRepository extends JpaRepository<Price,Long> {
 
     @Query("SELECT m FROM Price m " +

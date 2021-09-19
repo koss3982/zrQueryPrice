@@ -1,7 +1,9 @@
 package com.croyan.queryprice.rest;
 
-import com.croyan.queryprice.bean.ProductPriceBean;
-
+/**
+ * Bean genérico para devolver la respuesta del microservicio.
+ * @param <T>
+ */
 public class ServiceResponse<T> {
 
     private boolean ok;
