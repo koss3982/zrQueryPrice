@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "c5f64460-0e91-43a9-ba6c-a21209c55e4e",
+		"name": "zrQueryPrice-api-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/query?date=2021-09-11&brandId=1&productId=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/query?date=2021-09-11&brandId=1&productId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"query"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2021-09-11"
+						},
+						{
+							"key": "brandId",
+							"value": "1"
+						},
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
