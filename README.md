@@ -8,11 +8,18 @@ Durante este mes de septiembre se publicará el JDK 17, que al ser LTS puede ser
 
 Se ha implementado un único microservicio (classe **QueryController**), el cual tiene un único método **getPrice**.
 
-En el código hay comentarios
+En el código hay comentarios sobre alguna decisión de diseño.
 
 ## Simplificaciones realizadas
 
 Para la prueba técnica, se ha simplificado la implementación con las siguientes premisas:
 
 - Se ha obviado la securización. Se debería optar por securizar cada llamada al microservicio con JWT (JSON Web Token) o similar.
-- Se ha optado por catch-all en los métodos, en lugar de capturar cada una de las excepciones que pueden ser lanzadas,
+- Solo se ha creado una excepción: NoPriceFoundException. Se podría hacer más control sobre el paso de parámetros del microservicio, etc.
+
+## Ejecución
+
+Para la comprobación de los resultados de los precios con diferentes parámetros de fecha/hora:
+
+- En la compilación se ejecutan automáticamente los tests de integración.
+- Se puede levantar el microservicio y realizar las pruebas con Postman, u otro programa para realizar llamadas REST.
