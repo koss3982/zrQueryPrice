@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -55,7 +57,8 @@ public class QueryPriceStandardBP implements QueryPriceBP {
                 selectedPrice.getId(),
                 selectedPrice.getStartDate(),
                 selectedPrice.getEndDate(),
-                selectedPrice.getPrice());
+                new BigDecimal(selectedPrice.getPrice()).setScale(2, RoundingMode.HALF_EVEN)
+                );
 
         return ppb;
     }
