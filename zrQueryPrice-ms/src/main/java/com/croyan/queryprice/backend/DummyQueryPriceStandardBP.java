@@ -3,6 +3,8 @@ package com.croyan.queryprice.backend;
 import com.croyan.queryprice.bean.ProductPriceBean;
 import com.croyan.queryprice.exception.NoPriceFoundException;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -21,6 +23,7 @@ public class DummyQueryPriceStandardBP implements QueryPriceBP {
             return new ProductPriceBean(1L,1L,1L,
                     LocalDateTime.now().minus(3, ChronoUnit.DAYS),
                     LocalDateTime.now().plus(6, ChronoUnit.DAYS),
-                    29.99);
+                    new BigDecimal(29.99).setScale(2, RoundingMode.HALF_EVEN)
+                    );
         }
 }
