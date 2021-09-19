@@ -46,7 +46,7 @@ public class QueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$['currentPrice']").value(35.50));
+                .andExpect(jsonPath("$['data']['currentPrice']").value(35.50));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class QueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$['currentPrice']").value(25.45));
+                .andExpect(jsonPath("$['data']['currentPrice']").value(25.45));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class QueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$['currentPrice']").value(35.5));
+                .andExpect(jsonPath("$['data']['currentPrice']").value(35.5));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class QueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$['currentPrice']").value(30.5));
+                .andExpect(jsonPath("$['data']['currentPrice']").value(30.5));
     }
 
     @Test
@@ -98,6 +98,6 @@ public class QueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$['currentPrice']").value(38.95));
+                .andExpect(jsonPath("$['data']['currentPrice']").value(38.95));
     }
 }

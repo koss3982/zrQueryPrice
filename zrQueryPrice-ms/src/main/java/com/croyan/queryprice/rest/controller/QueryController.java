@@ -39,7 +39,7 @@ public class QueryController {
      * @return Devuelve el identificador del artículo y el precio actual de éste.
      */
     @GetMapping(produces = "application/json")
-    public ResponseEntity<ProductPriceBean> getPrice(
+    public ResponseEntity<ServiceResponse> getPrice(
             @RequestParam(value="date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)  LocalDateTime date,
             @RequestParam(value="brandId") long brandId,
             @RequestParam(value="productId") long productId
@@ -57,10 +57,14 @@ public class QueryController {
         // Devuelve la respuesta.
         // Se utiliza siempre una clase de respuesta que envuelve los datos.
         // Esta clase de respuesta contiene si la operación ha ido bien o no.
-        responseBuilder.data(productPrice);
-        responseBuilder.message("ok");
-
-        return ResponseEntity.ok().body(productPrice);
+        // Asumimos que ha ido bien, ya que sinó, hubiera saltado una excepción
+        // de precio no encontrado, o un error genérico de BDD, etc.
+        responseBuilder
+                .responseIsOk(true)
+                .message("ok")
+                .data(productPrice);
+        
+        return ResponseEntity.ok().body(responseBuilder.build());
     }
 
 }
