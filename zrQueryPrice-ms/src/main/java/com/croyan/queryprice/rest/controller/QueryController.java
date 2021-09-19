@@ -63,7 +63,7 @@ public class QueryController {
                 .responseIsOk(true)
                 .message("ok")
                 .data(productPrice);
-        
+
         return ResponseEntity.ok().body(responseBuilder.build());
     }
 

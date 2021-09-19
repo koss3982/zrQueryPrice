@@ -22,4 +22,7 @@ Para la prueba técnica, se ha simplificado la implementación con las siguiente
 Para la comprobación de los resultados de los precios con diferentes parámetros de fecha/hora:
 
 - En la compilación se ejecutan automáticamente los tests de integración.
-- Se puede levantar el microservicio y realizar las pruebas con Postman, u otro programa para realizar llamadas REST.
+- Se puede levantar el microservicio y realizar las pruebas con Postman, u otro programa para realizar llamadas REST (se incluye exportación de llamadas Postman).
+- Se puede levantar con un contenedor tipo Docker (y realizar llamadas REST de igual forma que punto anterior):
+    - docker build -t zr-query-price .
+    - docker run -d -p 8080:8080 zr-query-price
